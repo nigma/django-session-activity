@@ -29,6 +29,8 @@ In other words, it handles the following use case:
     and click a single button to deactivate all sessions
     opened on other computers.
 
+.. image:: http://i.imgur.com/7LOMmJL.png
+
 Documentation
 -------------
 
