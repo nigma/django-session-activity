@@ -83,13 +83,21 @@ def update_current_session_info(request):
 
     :type request: django.http.HttpRequest
     """
+
+    # Don't create session if it does not exist already
+    # Otherwise we could violate EU regulations
+    session_exists = request.COOKIES.get(settings.SESSION_COOKIE_NAME, None) is not None
+    if not session_exists:
+        logger.debug("Session does not exist for current request")
+        return
+
     session = request.session
     now = timezone.now()
     last_used = deserialize_date(session.get(SESSION_LAST_USED_KEY, None))
 
     # TODO: limit to authenticated users only?
     if not last_used or (now - last_used) > settings.SESSION_ACTIVITY_UPDATE_THROTTLE:
-        logger.info("Refreshing session activity")
+        logger.debug("Refreshing session activity")
 
         session[SESSION_LAST_USED_KEY] = serialize_date(now)
         session[SESSION_IP_KEY] = request.META["REMOTE_ADDR"]
