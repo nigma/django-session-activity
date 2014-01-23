@@ -14,6 +14,10 @@ class SessionActivity(models.Model):
     session_key     = models.CharField(_("session key"), max_length=40)
     created_at      = models.DateTimeField(auto_now_add=True)
 
+    class Meta:
+        verbose_name = _("Session activity")
+        verbose_name_plural = _("Session activity")
+
 
 def create_session_activity(request, user, **kwargs):
     """
