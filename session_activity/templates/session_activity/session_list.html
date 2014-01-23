@@ -1,0 +1,36 @@
+{% extends "site_base.html" %}
+
+{% load i18n %}
+
+
+{% block content %}
+    <h2>Sessions</h2>
+
+    <form action="{% url "session_sign_out" %}" method="post" class="form">
+        {% csrf_token %}
+        <div class="form-group">
+            <button class="btn btn-default">{% trans "Sign out all other sessions" %}</button>
+        </div>
+    </form>
+
+    <table class="table table-striped table-hover session-activity-list">
+        <thead>
+            <tr>
+                <th>{% trans "IP Address" %}</th>
+                <th>{% trans "Date/Time" %}</th>
+                <th>{% trans "Browser" %}</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for object in object_list %}
+                <tr class="session {{ object.is_current|yesno:"session-current," }}">
+                    <td>{{ object.ip }} {% if object.is_current %}<span class="label label-info">{% trans "current" %}</span>{% endif %}</td>
+                    <td>{{ object.last_used|date:"SHORT_DATETIME_FORMAT" }} ({{ object.last_used|timesince }} {% trans "ago" %})</td>
+                    <td>
+                        <small class="muted">{{ object.user_agent }}</small>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
