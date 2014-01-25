@@ -2,11 +2,21 @@
 django-session-activity
 =======================
 
-.. image:: https://badge.fury.io/py/django-session-activity.png
-    :target: http://badge.fury.io/py/django-session-activity
+.. image:: https://pypip.in/v/django-session-activity/badge.png
+    :target: https://pypi.python.org/pypi/django-session-activity/
+    :alt: Latest Version
 
 .. image:: https://pypip.in/d/django-session-activity/badge.png
-    :target: https://crate.io/packages/django-session-activity?version=latest
+    :target: https://pypi.python.org/pypi/django-session-activity/
+    :alt: Downloads
+
+.. image:: https://pypip.in/license/django-session-activity/badge.png
+    :target: https://pypi.python.org/pypi/django-session-activity/
+    :alt: License
+
+.. image:: http://b.repl.ca/v1/created_by-nigma-72a4b1.png
+    :target: http://en.ig.ma/
+    :alt: Built by
 
 List all active sessions and sign-out from all sessions opened on other computers.
 
@@ -49,7 +59,7 @@ Quickstart
 
 4. Add url config for session list and sign-out views:
 
-    .. code-block::
+    .. code-block:: python
 
         url(r'^sessions/', include('session_activity.urls')),
 
