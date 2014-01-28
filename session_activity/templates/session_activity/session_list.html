@@ -9,7 +9,7 @@
     <form action="{% url "session_sign_out" %}" method="post" class="form">
         {% csrf_token %}
         <div class="form-group">
-            <button class="btn btn-default">{% trans "Sign out all other sessions" %}</button>
+            <button type="submit" class="btn btn-default">{% trans "Sign out all other sessions" %}</button>
         </div>
     </form>
 
