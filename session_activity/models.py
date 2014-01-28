@@ -28,7 +28,7 @@ def create_session_activity(request, user, **kwargs):
         SessionActivity.objects.get_or_create(user=user, session_key=session_key)
 
 
-def destroy_session_activity(user, request, **kwargs):
+def destroy_session_activity(request, user, **kwargs):
     """
     Destroy session activity record.
 
