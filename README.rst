@@ -41,10 +41,6 @@ In other words, it handles the following use case:
 
 .. image:: http://i.imgur.com/7LOMmJL.png
 
-Documentation
--------------
-
-The full documentation is at http://django-session-activity.rtfd.org.
 
 Quickstart
 ----------
@@ -73,6 +69,15 @@ Dependencies
 
 ``django-session-activity`` depends on ``django>=1.5.0``, ``django-appconf>=0.6``
 and ``python-dateutil``.
+
+Documentation
+-------------
+
+The full documentation is at http://django-session-activity.rtfd.org (TODO).
+
+There's also an instant demo example that can be run from the cloned repository::
+
+    python demo.py
 
 License
 -------
