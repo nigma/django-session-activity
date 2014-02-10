@@ -53,11 +53,13 @@ if not settings.configured:
             "session_activity.middleware.SessionActivityMiddleware",
         ],
         TEMPLATE_DIRS=[rel("tests", "templates")],
-        STATIC_ROOT=os.path.abspath(rel("tests", "static")),
+        STATICFILES_DIRS=[rel("tests", "static")],
+        STATIC_URL="/static/",
         ROOT_URLCONF=basename,
         WSGI_APPLICATION="{}.application".format(basename),
         LOGIN_URL="/login/",
-        STATIC_URL="/static/"
+        USE_I18N=True,
+        USE_L10N=True,
     )
 
 from django.contrib import admin
