@@ -4,7 +4,7 @@
 
 
 {% block content %}
-    <h2>Sessions</h2>
+    <h2>{% trans "Sessions" %}</h2>
 
     <form action="{% url "session_sign_out" %}" method="post" class="form">
         {% csrf_token %}
@@ -25,7 +25,7 @@
             {% for object in object_list %}
                 <tr class="session {{ object.is_current|yesno:"session-current," }}">
                     <td>{{ object.ip }} {% if object.is_current %}<span class="label label-info">{% trans "current" %}</span>{% endif %}</td>
-                    <td>{{ object.last_used|date:"SHORT_DATETIME_FORMAT" }} ({{ object.last_used|timesince }} {% trans "ago" %})</td>
+                    <td>{% blocktrans with date=object.last_used|date:"SHORT_DATETIME_FORMAT" time_since=object.last_used|timesince %}{{ date }} ({{ time_since }} ago){% endblocktrans %}</td>
                     <td>
                         <small class="muted">{{ object.user_agent }}</small>
                     </td>
