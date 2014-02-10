@@ -50,7 +50,7 @@ Quickstart
 2. Add ``session_activity`` to ``INSTALLED_APPS`` and migrate/syncdb.
 
 3. Add ``session_activity.middleware.SessionActivity`` to ``MIDDLEWARE_CLASSES``
-   after the ``django.contrib.sessions.middleware.SessionActivityMiddleware`` and
+   after the ``django.contrib.sessions.middleware.SessionMiddleware`` and
    ``django.contrib.auth.middleware.AuthenticationMiddleware`` middleware classes.
 
 4. Add url config for session list and sign-out views:
