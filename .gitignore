@@ -6,6 +6,7 @@
 # Packages
 *.egg
 *.egg-info
+*.*~
 dist
 build
 eggs
@@ -26,9 +27,6 @@ pip-log.txt
 .coverage
 .tox
 nosetests.xml
-
-# Translations
-*.mo
 
 # Mr Developer
 .mr.developer.cfg
